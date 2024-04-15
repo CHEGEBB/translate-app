@@ -5,6 +5,10 @@ import OutputComponent from './components/outputComponent';
 function App() {
   return (
     <div className="App">
+      <div className="cards">
+        <InputComponent />
+        <OutputComponent />
+      </div>
     </div>
   );
 }
