@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 $font-family: 'DM Sans', sans-serif;
+$fontColor:#F9FAFB;
 @mixin card-input-output{
   display: flex;
   flex-direction: column;
@@ -24,6 +25,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  color: #F9FAFB;
 }
 
 .cards{
@@ -34,8 +36,30 @@ body {
 }
 .input-card{
   @include card-input-output;
+  display: flex;
+  flex-direction: row;
 }
 .output-card{
   @include card-input-output;
   margin-left: 0;
+}
+.side {
+  float: left;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+nav {
+  float: right;
+
+  .nav-item {
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: #007bff;
+    }
+  }
 }
