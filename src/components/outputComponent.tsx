@@ -2,8 +2,10 @@ import React from "react";
 
 const OutputComponent = () => {
     return (
-        <div>
-            <h1>Output Component</h1>
+        <div className="input-card">
+            <textarea>
+                Output
+            </textarea>
         </div>
       );
 }
