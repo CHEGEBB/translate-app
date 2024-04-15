@@ -15,12 +15,15 @@ $font-family: 'DM Sans', sans-serif;
 
 }
 body {
+  background-color: #333;
   background-image: url('./images/hero_img.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
-  height: 1500px;
+  background-size: cover;
+  height: 900px;
+  margin: 0;
+  padding: 0;
+  
 }
-
 .cards{
   display: flex;
   flex-direction: row;
