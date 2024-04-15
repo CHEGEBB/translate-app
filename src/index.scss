@@ -7,10 +7,10 @@ $font-family: 'DM Sans', sans-serif;
   align-items: center;
   border-radius: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: rgba(57, 65, 80, 0.7);
   width: 600px;
   height: 350px;
-  margin-top: 250px;
+  margin-top: 380px;
 
 
 }
@@ -19,11 +19,12 @@ body {
   background-image: url('./images/hero_img.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 950px;
+  background-position: center;
+  height: 100vh;
   margin: 0;
   padding: 0;
-  
 }
+
 .cards{
   display: flex;
   flex-direction: row;
