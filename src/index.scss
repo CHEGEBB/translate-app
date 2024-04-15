@@ -1,27 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
+$font-family: 'DM Sans', sans-serif;
 @mixin card-input-output{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
-  margin: 20px;
+  width: 500px;
+  height: 300px;
+  margin-top: 250px;
+
 
 }
-
-body{
+body {
   background-image: url('./images/hero_img.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 900px;
-
+  background-size: contain;
+  height: 1500px;
 }
+
 .cards{
   display: flex;
   flex-direction: row;
+  gap: 20px;
+  margin-left: 400px;
+}
+.input-card{
+  @include card-input-output;
+}
+.output-card{
+  @include card-input-output;
+  margin-left: 0;
 }
