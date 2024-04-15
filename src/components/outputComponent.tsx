@@ -7,3 +7,4 @@ const OutputComponent = () => {
         </div>
       );
 }
+export default OutputComponent;
