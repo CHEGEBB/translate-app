@@ -10,7 +10,7 @@ $fontColor:#F9FAFB;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: rgba(18, 24, 38, 0.9);
   width: 600px;
-  height: 350px;
+  height: 380px;
   margin-top: 20px;
   border: 0.5px solid #4D5562;
 
@@ -101,7 +101,7 @@ textarea{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: 140px;
+  margin-left: 200px;
   gap: 20px;
 
 }
@@ -116,7 +116,7 @@ button{
   width: 200px;
   display: flex;
   flex-direction: row;
-  margin-left: 270px;
+  margin-left: 210px;
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.2s;
