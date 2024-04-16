@@ -84,6 +84,28 @@ textarea{
   height: 200px;
 
 }
+.speak-copy-icons img{
+  width: 50px;
+  height: 50px;
+  border: 1px solid #4D5562;
+
+}
+.speak-copy-icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 100px;
+  gap: 20px;
+
+}
+.accessible-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -190px;
+  gap:250px;
+
+}
 
 
 nav {
