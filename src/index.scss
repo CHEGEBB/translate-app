@@ -110,16 +110,16 @@ button{
   color: #F9FAFB;
   font-size: 18px;
   font-family: $font-family;
-  border: none;
-  border-radius: 8px;
+  border: 1px solid #CDD5E0;
+  border-radius: 10px;
   height: 50px;
-  width: 200px;
+  width:150px;
   display: flex;
   flex-direction: row;
   margin-left: 210px;
   cursor: pointer;
   margin-top: 10px;
-  padding: 20px 20px 20px 20px;
+  padding: 10px 10px 10px 20px;
   transition: background-color 0.2s;
   &:hover {
     background-color: #394150;
