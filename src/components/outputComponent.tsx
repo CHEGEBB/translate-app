@@ -8,7 +8,8 @@ const OutputComponent:React.FC = () => {
   }
     return (
         <div className="output-card">
-           <nav>
+          <div className="header-content">
+          <nav>
         <div
           className={`nav-item ${activeNavItem === 'English' ? 'active' : ''}`}
           onClick={() => handleNavItemClick('English')}
@@ -28,6 +29,8 @@ const OutputComponent:React.FC = () => {
           Spanish
         </div>
       </nav>
+          </div>
+           
         </div>
       );
 }

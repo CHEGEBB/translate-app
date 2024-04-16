@@ -9,6 +9,7 @@ const InputComponent: React.FC = () => {
 
   return (
     <div className="input-card">
+      <div className="header-content">
       <div className="side">
         Detect Language
       </div>
@@ -32,6 +33,13 @@ const InputComponent: React.FC = () => {
           Spanish
         </div>
       </nav>
+      </div>
+     
+      <div className="input-field">
+        <textarea
+          placeholder="Enter text here"
+        ></textarea>
+      </div>
     </div>
   );
 }
