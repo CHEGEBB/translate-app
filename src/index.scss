@@ -41,6 +41,8 @@ body {
 .output-card{
   @include card-input-output;
   margin-left: 0;
+  background-color: rgba(18, 24, 38, 1);
+
 }
 .side {
   float: left;
@@ -85,7 +87,7 @@ textarea{
   width: 520px;
   height: 170px;
   border: 0;
-  background-color: rgba(18, 24, 38, 0.4);
+  background-color: rgba(18, 24, 38, 0.2);
   color: #F9FAFB;
   font-size: 18px;
   font-family: $font-family;

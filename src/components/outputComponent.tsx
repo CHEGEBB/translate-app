@@ -3,6 +3,7 @@ import { useState } from "react";
 import SpeakIcon from "../images/sound_max_fill.svg";
 import CopyIcon from "../images/Copy.svg";
 import BackArrows from "../images/Horizontal_top_left_main.svg";
+import DropDown from "../images/Expand_down.svg";
 
 const OutputComponent:React.FC = () => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
@@ -25,11 +26,16 @@ const OutputComponent:React.FC = () => {
         >
           French
         </div>
+        <div className="spanish">
         <div
           className={`nav-item ${activeNavItem === 'Spanish' ? 'active' : ''}`}
           onClick={() => handleNavItemClick('Spanish')}
-        >
-          Spanish
+        > Spanish
+        </div>
+        <div className="spanish-dropdown">
+        <img src={DropDown} alt="dropdown" />
+        </div>
+        
         </div>
         <div className="arrows">
         <img src={BackArrows} alt="back" />
