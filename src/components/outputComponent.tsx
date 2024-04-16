@@ -1,19 +1,39 @@
-import React, { useState } from "react";
-import SpeakIcon from "../images/sound_max_fill.svg";
-import CopyIcon from "../images/Copy.svg";
-import BackArrows from "../images/Horizontal_top_left_main.svg";
-import DropDown from "../images/Expand_down.svg";
+// OutputComponent.tsx
+import React, { useState, useEffect } from 'react';
+import SpeakIcon from '../images/sound_max_fill.svg';
+import CopyIcon from '../images/Copy.svg';
+import BackArrows from '../images/Horizontal_top_left_main.svg';
+import DropDown from '../images/Expand_down.svg';
+import translateText from './translationService';
 
 interface OutputProps {
   translatedText: string;
+  translationDirection: [string, string];
 }
 
-const OutputComponent: React.FC<OutputProps> = ({ translatedText }) => {
+const OutputComponent: React.FC<OutputProps> = ({ translatedText, translationDirection }) => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
-  
+
   const handleNavItemClick = (navItem: string) => {
     setActiveNavItem(navItem);
   };
+
+  useEffect(() => {
+    const translateOutputText = async () => {
+      try {
+        const [sourceLanguage, targetLanguage] = translationDirection;
+        const translatedTextResult = await translateText(translatedText, sourceLanguage, targetLanguage);
+        console.log('Translated:', translatedTextResult);
+        // Optionally update translated text state in OutputComponent if needed
+      } catch (error) {
+        console.error('Translation error:', (error as Error).message);
+      }
+    };
+
+    if (translationDirection && translationDirection[0] && translationDirection[1]) {
+      translateOutputText(); // Call translation function when translation direction is available
+    }
+  }, [translatedText, translationDirection]);
 
   return (
     <div className="output-card">
@@ -31,29 +51,17 @@ const OutputComponent: React.FC<OutputProps> = ({ translatedText }) => {
           >
             French
           </div>
-          <div className="spanish">
-            <div
-              className={`nav-item ${activeNavItem === 'Spanish' ? 'active' : ''}`}
-              onClick={() => handleNavItemClick('Spanish')}
-            >
-              Spanish
-            </div>
-            <div className="spanish-dropdown">
-              <img src={DropDown} alt="dropdown" />
-            </div>
-          </div>
-          <div className="arrows">
-            <img src={BackArrows} alt="back" />
+          <div
+            className={`nav-item ${activeNavItem === 'Spanish' ? 'active' : ''}`}
+            onClick={() => handleNavItemClick('Spanish')}
+          >
+            Spanish
           </div>
         </nav>
       </div>
-      <hr className='horizontal-line'/>
+      <hr className="horizontal-line" />
       <div className="output-field">
-        <textarea
-          placeholder="Translation will appear here"
-          readOnly
-          value={translatedText}
-        ></textarea>
+        <textarea placeholder="Translation will appear here" readOnly value={translatedText}></textarea>
       </div>
       <div className="accessible-buttons-2">
         <div className="speak-copy-icons">
@@ -63,6 +71,6 @@ const OutputComponent: React.FC<OutputProps> = ({ translatedText }) => {
       </div>
     </div>
   );
-}
+};
 
 export default OutputComponent;

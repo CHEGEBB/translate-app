@@ -8,25 +8,22 @@ import translateText from './translationService'; // Import translation service
 
 interface InputProps {
   setTranslatedText: React.Dispatch<React.SetStateAction<string>>;
+  setTranslationDirection: React.Dispatch<React.SetStateAction<[string, string]>>;
 }
 
-const InputComponent: React.FC<InputProps> = ({ setTranslatedText }) => {
+const InputComponent: React.FC<InputProps> = ({ setTranslatedText, setTranslationDirection }) => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
   const [text, setText] = useState<string>('');
 
   const handleNavItemClick = (navItem: string) => {
     setActiveNavItem(navItem);
   };
-  
-  const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const inputText = event.target.value;
-    const truncatedText = inputText.length <= 500 ? inputText : inputText.slice(0, 500);
-    setText(truncatedText);
-  };
-  
+
   const handleTranslateClick = async () => {
     try {
-      const translatedText = await translateText(text, 'en', activeNavItem.toLowerCase());
+      const [sourceLanguage, targetLanguage] = getTranslationDirection(activeNavItem);
+      setTranslationDirection([sourceLanguage, targetLanguage]); // Set translation direction
+      const translatedText = await translateText(text, sourceLanguage, targetLanguage);
       setTranslatedText(translatedText); // Update translated text state
       console.log('Translated:', translatedText);
     } catch (error) {
@@ -34,14 +31,38 @@ const InputComponent: React.FC<InputProps> = ({ setTranslatedText }) => {
     }
   };
 
-  const wordCount = text.length; 
+  const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const inputText = event.target.value;
+    const truncatedText = inputText.length <= 500 ? inputText : inputText.slice(0, 500);
+    setText(truncatedText);
+  };
+
+  const wordCount = text.length;
+
+  const getTranslationDirection = (activeNavItem: string): [string, string] => {
+    // Define translation direction based on activeNavItem
+    let sourceLanguage = '';
+    let targetLanguage = '';
+    switch (activeNavItem) {
+      case 'English':
+        sourceLanguage = 'en';
+        break;
+      case 'French':
+        sourceLanguage = 'fr';
+        break;
+      case 'Spanish':
+        sourceLanguage = 'es';
+        break;
+      default:
+        break;
+    }
+    return [sourceLanguage, 'en']; // Translate to English by default
+  };
 
   return (
     <div className="input-card">
       <div className="header-content">
-        <div className="side">
-          Detect Language
-        </div>
+        <div className="side">Detect Language</div>
         <nav>
           <div
             className={`nav-item ${activeNavItem === 'English' ? 'active' : ''}`}
@@ -55,26 +76,17 @@ const InputComponent: React.FC<InputProps> = ({ setTranslatedText }) => {
           >
             French
           </div>
-          <div className="spanish">
-            <div
-              className={`nav-item ${activeNavItem === 'Spanish' ? 'active' : ''}`}
-              onClick={() => handleNavItemClick('Spanish')}
-            >
-              Spanish
-            </div>
-            <div className="spanish-dropdown">
-              <img src={DropDown} alt="dropdown" />
-            </div>
+          <div
+            className={`nav-item ${activeNavItem === 'Spanish' ? 'active' : ''}`}
+            onClick={() => handleNavItemClick('Spanish')}
+          >
+            Spanish
           </div>
         </nav>
       </div>
-      <hr className='horizontal-line'/>
+      <hr className="horizontal-line" />
       <div className="input-field">
-        <textarea
-          placeholder="Enter text here"
-          value={text} 
-          onChange={handleTextareaChange}
-        ></textarea>
+        <textarea placeholder="Enter text here" value={text} onChange={handleTextareaChange}></textarea>
       </div>
       <div className="accessible-buttons">
         <div className="speak-copy-icons">
@@ -82,23 +94,19 @@ const InputComponent: React.FC<InputProps> = ({ setTranslatedText }) => {
           <img src={CopyIcon} alt="copy" />
         </div>
         <div className="translate">
-          <div className="word-counter-max-500">
-            {wordCount}/500 {/* Display word count */}
-          </div>
+          <div className="word-counter-max-500">{wordCount}/500</div>
           <div className="button-class">
             <button onClick={handleTranslateClick}>
               <div className="icon">
                 <img src={ButtonIcon} alt="translate" />
               </div>
-              <div className="trans">
-                Translate
-              </div>
+              <div className="trans">Translate</div>
             </button>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default InputComponent;
