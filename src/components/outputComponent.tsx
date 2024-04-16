@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import SpeakIcon from "../images/sound_max_fill.svg";
+import CopyIcon from "../images/Copy.svg";
+import ButtonIcon from "../images/Sort_alfa.svg";
 
 const OutputComponent:React.FC = () => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
@@ -37,6 +40,12 @@ const OutputComponent:React.FC = () => {
               readOnly
             ></textarea>
             </div>
+            <div className="accessible-buttons">
+        <div className="speak-copy-icons">
+          <img src={SpeakIcon} alt="speak" />
+          <img src={CopyIcon} alt="copy" />
+        </div>
+      </div>
            
         </div>
       );
