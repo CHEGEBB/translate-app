@@ -32,6 +32,7 @@ const InputComponent: React.FC = () => {
           Spanish
         </div>
       </nav>
+      <div className="rectangle"></div>
     </div>
   );
 }
