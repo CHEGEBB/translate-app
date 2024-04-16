@@ -89,6 +89,12 @@ textarea{
   height: 50px;
   border: 2px solid #4D5562;
   border-radius: 15px;
+  cursor: pointer;
+  margin: 2px;
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
 
 }
 .speak-copy-icons{
