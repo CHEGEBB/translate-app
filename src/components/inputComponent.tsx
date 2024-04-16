@@ -54,7 +54,11 @@ const InputComponent: React.FC = () => {
             <div className="icon">
               <img src={ButtonIcon} alt="translate" />
             </div>
-            Translate</button>
+            <div className="trans">
+            Translate
+            </div>
+            
+            </button>
         </div>
       </div>
     </div>
