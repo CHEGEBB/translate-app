@@ -60,7 +60,7 @@ body {
 textarea{
   width: 520px;
   height: 180px;
-  border: none;
+  border: 2px solid #CDD5E0;
   background-color: rgba(4, 18, 33, 0.9);
   color: #F9FAFB;
   font-size: 18px;
@@ -68,6 +68,7 @@ textarea{
   padding: 10px;
   resize: none;
   margin-top: -2px;
+  outline: none;
 }
 .horizontal-line {
   border: none;
