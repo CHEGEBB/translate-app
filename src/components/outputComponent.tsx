@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import SpeakIcon from "../images/sound_max_fill.svg";
 import CopyIcon from "../images/Copy.svg";
-import ButtonIcon from "../images/Sort_alfa.svg";
+import BackArrows from "../images/Horizontal_top_left_main.svg";
 
 const OutputComponent:React.FC = () => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
@@ -31,6 +31,9 @@ const OutputComponent:React.FC = () => {
         >
           Spanish
         </div>
+        <div className="arrows">
+        <img src={BackArrows} alt="back" />
+        </div>
       </nav>
           </div>
           <hr className='horizontal-line'/>
@@ -40,7 +43,7 @@ const OutputComponent:React.FC = () => {
               readOnly
             ></textarea>
             </div>
-            <div className="accessible-buttons">
+            <div className="accessible-buttons-2">
         <div className="speak-copy-icons">
           <img src={SpeakIcon} alt="speak" />
           <img src={CopyIcon} alt="copy" />
