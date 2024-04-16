@@ -3,6 +3,7 @@ import SpeakIcon from '../images/sound_max_fill.svg';
 import CopyIcon from '../images/Copy.svg';
 import ButtonIcon from '../images/Sort_alfa.svg';
 import DropDown from '../images/Expand_down.svg';
+import translateText from './translationService'; // Import translation service
 
 const InputComponent: React.FC = () => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
@@ -11,11 +12,21 @@ const InputComponent: React.FC = () => {
   const handleNavItemClick = (navItem: string) => {
     setActiveNavItem(navItem);
   };
+  
+  const handleTextareaChange = async (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const inputText = event.target.value;
+    const truncatedText = inputText.length <= 500 ? inputText : inputText.slice(0, 500);
+    setText(truncatedText);
 
-  const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(event.target.value); 
+    // Translate text when user inputs
+    try {
+      const translatedText = await translateText(truncatedText, 'en', activeNavItem.toLowerCase());
+      console.log(translatedText); // Display translated text in console for now
+    } catch (error: Error) { // Specify type of error explicitly
+      console.error('Translation error:', error.message);
+    }
   };
-
+  
   const wordCount = text.length; 
 
   return (
@@ -54,8 +65,8 @@ const InputComponent: React.FC = () => {
       <div className="input-field">
         <textarea
           placeholder="Enter text here"
-          value={text} // Bind value to state
-          onChange={handleTextareaChange} // Handle change event
+          value={text} 
+          onChange={handleTextareaChange}
         ></textarea>
       </div>
       <div className="accessible-buttons">
