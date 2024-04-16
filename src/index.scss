@@ -72,7 +72,14 @@ body {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 30px;
+}
+.spanish{
+  display: flex;
+  flex-direction: row;
+}
+.spanish-dropdown{
+  margin: 3px;
 }
 textarea{
   width: 520px;
@@ -185,11 +192,12 @@ nav {
     &:hover, &.active {
       color: #F9FAFB;
       background-color: #394150;
-      width: 80px;
+      width: 90px;
       height: 30px;
       border-radius: 8px;
       text-align: center;
-      padding: 10px 10px 0px 10px;
+      padding-top: 10px;
+      margin-top: -10px;
     }
   }
  
