@@ -71,7 +71,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: -30px;
+  margin-top: 20px;
   margin-left: -150px;
 }
 textarea{
@@ -100,6 +100,9 @@ textarea{
   width: 200px;
   height: 200px;
 
+}
+.accessible-buttons-2{
+  margin-left: -590px;
 }
 .speak-copy-icons img{
   width: 35px;
@@ -151,10 +154,15 @@ button{
   gap:20px;
 
 }
+.arrows{
+  
 
+}
 
 nav {
   float: right;
+  display: flex;
+  flex-direction: row;
 
   .nav-item {
     display: inline-block;
