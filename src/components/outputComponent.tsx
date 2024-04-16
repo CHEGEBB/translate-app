@@ -30,6 +30,13 @@ const OutputComponent:React.FC = () => {
         </div>
       </nav>
           </div>
+          <hr className='horizontal-line'/>
+          <div className="output-field">
+            <textarea
+              placeholder="Translation will appear here"
+              readOnly
+            ></textarea>
+            </div>
            
         </div>
       );
