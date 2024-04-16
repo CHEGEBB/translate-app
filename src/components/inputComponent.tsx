@@ -13,20 +13,22 @@ const InputComponent: React.FC = () => {
     setActiveNavItem(navItem);
   };
   
-  const handleTextareaChange = async (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const inputText = event.target.value;
     const truncatedText = inputText.length <= 500 ? inputText : inputText.slice(0, 500);
     setText(truncatedText);
-
-    // Translate text when user inputs
-    try {
-      const translatedText = await translateText(truncatedText, 'en', activeNavItem.toLowerCase());
-      console.log(translatedText); // Display translated text in console for now
-    } catch (error: Error) { // Specify type of error explicitly
-      console.error('Translation error:', error.message);
-    }
   };
   
+  const handleTranslateClick = async () => {
+    try {
+      const translatedText = await translateText(text, 'en', activeNavItem.toLowerCase());
+      console.log('Translated:', translatedText);
+      // Update state or perform further actions with translated text
+    } catch (error) {
+      console.error('Translation error:', (error as Error).message);
+    }
+  };
+
   const wordCount = text.length; 
 
   return (
@@ -79,7 +81,7 @@ const InputComponent: React.FC = () => {
             {wordCount}/500 {/* Display word count */}
           </div>
           <div className="button-class">
-            <button>
+            <button onClick={handleTranslateClick}>
               <div className="icon">
                 <img src={ButtonIcon} alt="translate" />
               </div>
