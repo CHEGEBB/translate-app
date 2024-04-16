@@ -58,6 +58,7 @@ const InputComponent: React.FC = () => {
         </div>
         <div className="translate">
           <div className="word-counter-max-500">
+            {/* updated dynamically as a user inputs */}
             0/500
           </div>
           <div className="button-class">
