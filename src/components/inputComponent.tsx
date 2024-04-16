@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import SpeakIcon from '../images/sound_max_fill.svg';
+import CopyIcon from '../images/Copy.svg';
+import ButtonIcon from '../images/Sort_alfa.svg';
 
 const InputComponent: React.FC = () => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
@@ -40,6 +43,19 @@ const InputComponent: React.FC = () => {
         <textarea
           placeholder="Enter text here"
         ></textarea>
+      </div>
+      <div className="accessible-buttons">
+        <div className="speak-copy-icons">
+          <img src={SpeakIcon} alt="speak" />
+          <img src={CopyIcon} alt="copy" />
+        </div>
+        <div className="translate">
+          <button>
+            <div className="icon">
+              <img src={ButtonIcon} alt="translate" />
+            </div>
+            Translate</button>
+        </div>
       </div>
     </div>
   );
