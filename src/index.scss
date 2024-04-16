@@ -114,6 +114,8 @@ button{
   border-radius: 8px;
   height: 50px;
   width: 200px;
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.2s;
@@ -126,7 +128,7 @@ button{
   flex-direction: row;
   justify-content: center;
   margin-left: -190px;
-  gap:250px;
+  gap:150px;
 
 }
 
