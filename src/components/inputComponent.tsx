@@ -50,6 +50,10 @@ const InputComponent: React.FC = () => {
           <img src={CopyIcon} alt="copy" />
         </div>
         <div className="translate">
+          <div className="word-counter-max-500">
+            0/500
+          </div>
+          <div className="button-class">
           <button>
             <div className="icon">
               <img src={ButtonIcon} alt="translate" />
@@ -59,6 +63,8 @@ const InputComponent: React.FC = () => {
             </div>
             
             </button>
+          </div>
+          
         </div>
       </div>
     </div>

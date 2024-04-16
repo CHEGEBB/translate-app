@@ -53,13 +53,30 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: -10px;
-  margin-left: -150px;
+  margin-top: 20px;
+  margin-left: -100px;
 
+}
+.word-counter-max-500{
+  font-size: 14px;
+  color: #4D5562;
+  margin-left: 320px;
+
+}
+.translate{
+  display: flex;
+  flex-direction: column;
+}
+.header-content-2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -30px;
+  margin-left: -150px;
 }
 textarea{
   width: 520px;
-  height: 200px;
+  height: 170px;
   border: 0;
   background-color: rgba(18, 24, 38, 0.4);
   color: #F9FAFB;
@@ -103,6 +120,7 @@ textarea{
   justify-content: center;
   margin-left: 200px;
   gap: 20px;
+  margin-top: 20px;
 
 }
 button{
@@ -151,6 +169,7 @@ nav {
       height: 30px;
       border-radius: 8px;
       text-align: center;
+      padding: 10px 10px 0px 10px;
     }
   }
  

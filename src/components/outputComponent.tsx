@@ -8,7 +8,7 @@ const OutputComponent:React.FC = () => {
   }
     return (
         <div className="output-card">
-          <div className="header-content">
+          <div className="header-content-2">
           <nav>
         <div
           className={`nav-item ${activeNavItem === 'English' ? 'active' : ''}`}
