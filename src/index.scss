@@ -72,12 +72,11 @@ nav {
       text-align: center;
     }
   }
-  .rectangle{
-    width: 300px;
-    height: 15px;
-    border-radius: 8px;
-    text-align: center;
-    background-color: crimson;
+  .horizontal-line {
+    border: none;
+    border-top: 1px solid #ccc; 
+    margin-top: 10px; 
+    width: 400px;
   }
   
 }
