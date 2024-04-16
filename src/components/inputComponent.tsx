@@ -34,6 +34,7 @@ const InputComponent: React.FC = () => {
         </div>
       </nav>
       </div>
+      <hr className='horizontal-line'/>
      
       <div className="input-field">
         <textarea
