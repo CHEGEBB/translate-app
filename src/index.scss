@@ -47,20 +47,20 @@ body {
   float: left;
   font-weight: bold;
   font-size: 18px;
-  color: #CDD5E0;
-  margin-top: -200px;
+  color: #4D5562;
+  margin-top: -260px;
+  margin-left: -80px;
 }
 
 nav {
   float: right;
-  background-color: red;
   margin-top: -260px;
 
   .nav-item {
     display: inline-block;
     margin-left: 20px;
     cursor: pointer;
-    color: #CDD5E0;
+    color: #4D5562;
 
     &:hover {
       color: #007bff;
