@@ -61,14 +61,15 @@ nav {
     margin-left: 20px;
     cursor: pointer;
     color: #4D5562;
-
-    &:hover {
+  
+    &:hover, &.active {
       color: #F9FAFB;
       background-color: #394150;
       width: 80px;
       height: 30px;
       border-radius: 8px;
-      padding: 20px;
+      text-align: center;
     }
   }
+  
 }
