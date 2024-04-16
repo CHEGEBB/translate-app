@@ -6,49 +6,56 @@ import DropDown from '../images/Expand_down.svg';
 
 const InputComponent: React.FC = () => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
+  const [text, setText] = useState<string>('');
 
   const handleNavItemClick = (navItem: string) => {
     setActiveNavItem(navItem);
   };
 
+  const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(event.target.value); 
+  };
+
+  const wordCount = text.length; 
+
   return (
     <div className="input-card">
       <div className="header-content">
-      <div className="side">
-        Detect Language
-      </div>
-      <nav>
-        <div
-          className={`nav-item ${activeNavItem === 'English' ? 'active' : ''}`}
-          onClick={() => handleNavItemClick('English')}
-        >
-          English
+        <div className="side">
+          Detect Language
         </div>
-        <div
-          className={`nav-item ${activeNavItem === 'French' ? 'active' : ''}`}
-          onClick={() => handleNavItemClick('French')}
-        >
-          French
-        </div>
-        <div className="spanish">
-        <div
-          className={`nav-item ${activeNavItem === 'Spanish' ? 'active' : ''}`}
-          onClick={() => handleNavItemClick('Spanish')}
-        > Spanish
-        </div>
-        <div className="spanish-dropdown">
-        <img src={DropDown} alt="dropdown" />
-        </div>
-        
-        </div>
-        
-      </nav>
+        <nav>
+          <div
+            className={`nav-item ${activeNavItem === 'English' ? 'active' : ''}`}
+            onClick={() => handleNavItemClick('English')}
+          >
+            English
+          </div>
+          <div
+            className={`nav-item ${activeNavItem === 'French' ? 'active' : ''}`}
+            onClick={() => handleNavItemClick('French')}
+          >
+            French
+          </div>
+          <div className="spanish">
+            <div
+              className={`nav-item ${activeNavItem === 'Spanish' ? 'active' : ''}`}
+              onClick={() => handleNavItemClick('Spanish')}
+            >
+              Spanish
+            </div>
+            <div className="spanish-dropdown">
+              <img src={DropDown} alt="dropdown" />
+            </div>
+          </div>
+        </nav>
       </div>
       <hr className='horizontal-line'/>
-     
       <div className="input-field">
         <textarea
           placeholder="Enter text here"
+          value={text} // Bind value to state
+          onChange={handleTextareaChange} // Handle change event
         ></textarea>
       </div>
       <div className="accessible-buttons">
@@ -58,21 +65,18 @@ const InputComponent: React.FC = () => {
         </div>
         <div className="translate">
           <div className="word-counter-max-500">
-            {/* updated dynamically as a user inputs */}
-            0/500
+            {wordCount}/500 {/* Display word count */}
           </div>
           <div className="button-class">
-          <button>
-            <div className="icon">
-              <img src={ButtonIcon} alt="translate" />
-            </div>
-            <div className="trans">
-            Translate
-            </div>
-            
+            <button>
+              <div className="icon">
+                <img src={ButtonIcon} alt="translate" />
+              </div>
+              <div className="trans">
+                Translate
+              </div>
             </button>
           </div>
-          
         </div>
       </div>
     </div>
