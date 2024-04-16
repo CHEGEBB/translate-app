@@ -1,3 +1,4 @@
+// InputComponent.tsx
 import React, { useState } from 'react';
 import SpeakIcon from '../images/sound_max_fill.svg';
 import CopyIcon from '../images/Copy.svg';
@@ -5,7 +6,11 @@ import ButtonIcon from '../images/Sort_alfa.svg';
 import DropDown from '../images/Expand_down.svg';
 import translateText from './translationService'; // Import translation service
 
-const InputComponent: React.FC = () => {
+interface InputProps {
+  setTranslatedText: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const InputComponent: React.FC<InputProps> = ({ setTranslatedText }) => {
   const [activeNavItem, setActiveNavItem] = useState<string>('English');
   const [text, setText] = useState<string>('');
 
@@ -22,8 +27,8 @@ const InputComponent: React.FC = () => {
   const handleTranslateClick = async () => {
     try {
       const translatedText = await translateText(text, 'en', activeNavItem.toLowerCase());
+      setTranslatedText(translatedText); // Update translated text state
       console.log('Translated:', translatedText);
-      // Update state or perform further actions with translated text
     } catch (error) {
       console.error('Translation error:', (error as Error).message);
     }
