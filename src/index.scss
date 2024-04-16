@@ -54,6 +54,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   margin-top: -100px;
+  margin-left: -150px;
 
 }
 textarea{
@@ -66,7 +67,7 @@ textarea{
   font-family: $font-family;
   padding: 10px;
   resize: none;
-  margin-top: 50px;
+  margin-top: -2px;
 }
 .horizontal-line {
   border: none;
