@@ -1,4 +1,3 @@
-// OutputComponent.tsx
 import React, { useState, useEffect } from 'react';
 import SpeakIcon from '../images/sound_max_fill.svg';
 import CopyIcon from '../images/Copy.svg';
@@ -24,14 +23,13 @@ const OutputComponent: React.FC<OutputProps> = ({ translatedText, translationDir
         const [sourceLanguage, targetLanguage] = translationDirection;
         const translatedTextResult = await translateText(translatedText, sourceLanguage, targetLanguage);
         console.log('Translated:', translatedTextResult);
-        // Optionally update translated text state in OutputComponent if needed
       } catch (error) {
         console.error('Translation error:', (error as Error).message);
       }
     };
 
     if (translationDirection && translationDirection[0] && translationDirection[1]) {
-      translateOutputText(); // Call translation function when translation direction is available
+      translateOutputText();
     }
   }, [translatedText, translationDirection]);
 
@@ -56,12 +54,17 @@ const OutputComponent: React.FC<OutputProps> = ({ translatedText, translationDir
             onClick={() => handleNavItemClick('Spanish')}
           >
             Spanish
+            <img src={DropDown} alt="dropdown" />
+          </div>
+
+          <div className="arrows">
+            <img src={BackArrows} alt="back" />
           </div>
         </nav>
       </div>
       <hr className="horizontal-line" />
       <div className="output-field">
-        <textarea placeholder="Translation will appear here" readOnly value={translatedText}></textarea>
+        <textarea readOnly value={translatedText}></textarea>
       </div>
       <div className="accessible-buttons-2">
         <div className="speak-copy-icons">
