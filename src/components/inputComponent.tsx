@@ -1,10 +1,9 @@
-// InputComponent.tsx
 import React, { useState } from 'react';
 import SpeakIcon from '../images/sound_max_fill.svg';
 import CopyIcon from '../images/Copy.svg';
 import ButtonIcon from '../images/Sort_alfa.svg';
 import DropDown from '../images/Expand_down.svg';
-import translateText from './translationService'; // Import translation service
+import translateText from './translationService';
 
 interface InputProps {
   setTranslatedText: React.Dispatch<React.SetStateAction<string>>;
@@ -22,9 +21,9 @@ const InputComponent: React.FC<InputProps> = ({ setTranslatedText, setTranslatio
   const handleTranslateClick = async () => {
     try {
       const [sourceLanguage, targetLanguage] = getTranslationDirection(activeNavItem);
-      setTranslationDirection([sourceLanguage, targetLanguage]); // Set translation direction
+      setTranslationDirection([sourceLanguage, targetLanguage]);
       const translatedText = await translateText(text, sourceLanguage, targetLanguage);
-      setTranslatedText(translatedText); // Update translated text state
+      setTranslatedText(translatedText);
       console.log('Translated:', translatedText);
     } catch (error) {
       console.error('Translation error:', (error as Error).message);
@@ -40,7 +39,6 @@ const InputComponent: React.FC<InputProps> = ({ setTranslatedText, setTranslatio
   const wordCount = text.length;
 
   const getTranslationDirection = (activeNavItem: string): [string, string] => {
-    // Define translation direction based on activeNavItem
     let sourceLanguage = '';
     let targetLanguage = '';
     switch (activeNavItem) {
@@ -56,7 +54,7 @@ const InputComponent: React.FC<InputProps> = ({ setTranslatedText, setTranslatio
       default:
         break;
     }
-    return [sourceLanguage, 'en']; // Translate to English by default
+    return [sourceLanguage, 'en'];
   };
 
   return (
@@ -81,6 +79,7 @@ const InputComponent: React.FC<InputProps> = ({ setTranslatedText, setTranslatio
             onClick={() => handleNavItemClick('Spanish')}
           >
             Spanish
+            <img src={DropDown} />
           </div>
         </nav>
       </div>
