@@ -55,7 +55,7 @@ const InputComponent: React.FC<InputProps> = ({ setTranslatedText, setTranslatio
         break;
     }
     return [sourceLanguage, 'en'];
-    console.log(sourceLanguage);
+    
   };
 
   return (
